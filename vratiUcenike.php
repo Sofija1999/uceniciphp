@@ -36,7 +36,7 @@ $baza = new Baza();
                 <td><?php echo $ucenik->naziv;  ?></td>
                 <td>
                     <button class="btn btn-primary" id="dugmeIzmeni">Izmeni</button>
-                    <button class="btn btn-danger" id="dugmeObrisi">Obriši</button>
+                    <button class="btn btn-danger" id="dugmeObrisi" value="<?php echo $ucenik->id; ?>">Obriši</button>
                 </td>
             </tr>
         <?php endwhile; ?>

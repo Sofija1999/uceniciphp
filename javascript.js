@@ -1,6 +1,7 @@
 $(document).ready(function () {
     vratiSveUcenike();
     dodajNovogUcenika();
+    obrisiUcenika();
 });
 
 function vratiSveUcenike() {
@@ -39,4 +40,20 @@ function dodajNovogUcenika() {
             });
     })
 
+}
+
+function obrisiUcenika() {
+
+    $(document).on('click', '#dugmeObrisi', function () {
+
+        var idUcenika = $(this).attr('value');
+        $.ajax({
+            url: 'obrisi.php',
+            method: 'post',
+            data: { P_idUcenika: idUcenika },
+            success: function (result) {
+                vratiSveUcenike();
+            }
+        })
+    })
 }

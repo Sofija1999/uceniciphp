@@ -58,7 +58,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email" class="text-dark">Email: </label>
-                            <input type="text" class="form-control" id="email">
+                            <input type="email" class="form-control" id="email">
                         </div>
                         <div class="form-group">
                             <label for="razredni" class="text-dark">Razredni: </label>
