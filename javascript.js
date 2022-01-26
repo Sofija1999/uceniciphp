@@ -2,6 +2,8 @@ $(document).ready(function () {
     vratiSveUcenike();
     dodajNovogUcenika();
     obrisiUcenika();
+    prikaziUcenika();
+    izmeniUcenika();
 });
 
 function vratiSveUcenike() {
@@ -56,4 +58,62 @@ function obrisiUcenika() {
             }
         })
     })
+}
+
+
+function prikaziUcenika() {
+
+    $(document).on('click', '#dugmeIzmeni', function () {
+
+        var idUcenika = $(this).attr('value');
+
+        $.ajax({
+            url: 'prikaziUcenika.php',
+            method: 'post',
+            data: { P_id: idUcenika },
+            dataType: 'JSON',
+
+            success: function (result) {
+                $('#izmenaUcenika').modal('show');
+                $('#id_izmena').val(result['id']);
+                $('#ime_izmena').val(result['ime']);
+                $('#prezime_izmena').val(result['prezime']);
+                $('#adresa_izmena').val(result['adresa']);
+                $('#email_izmena').val(result['email']);
+                $('#razredni_izmena').val(result['razredni_id']);
+            }
+        });
+    })
+}
+
+
+function izmeniUcenika() {
+
+    $(document).on('click', '#btnIzmeni', function () {
+
+        var id = $('#id_izmena').val();
+        var ime = $('#ime_izmena').val();
+        var prezime = $('#prezime_izmena').val();
+        var adresa = $('#adresa_izmena').val();
+        var email = $('#email_izmena').val();
+        var razredni = $('#razredni_izmena').val();
+
+        $.ajax({
+            url: 'azurirajUcenika.php',
+            method: 'post',
+            data: {
+                P_id: id,
+                P_ime: ime,
+                P_prezime: prezime,
+                P_adresa: adresa,
+                P_email: email,
+                P_razredni: razredni,
+            },
+
+            success: function (result) {
+                vratiSveUcenike();
+                $('#izmenaUcenika').modal('hide');
+            }
+        })
+    });
 }

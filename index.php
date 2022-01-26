@@ -82,6 +82,55 @@
         </div>
     </div>
 
+
+    <!-- Izmena učenika modalna forma -->
+    <div class="modal" id="izmenaUcenika">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-primary">Izmena učenika</h3>
+                </div>
+                <div class="modal-body">
+                    <form class="my-1">
+                        <input type="hidden" class="form-control my-2" id="id_izmena">
+                        <div class="form-group">
+                            <label for="ime_izmena" class="text-dark">Ime:</label>
+                            <input type="text" class="form-control" id="ime_izmena">
+                        </div>
+                        <div class="form-group">
+                            <label for="prezime_izmena" class="text-dark">Prezime: </label>
+                            <input type="text" class="form-control" id="prezime_izmena">
+                        </div>
+                        <div class="form-group">
+                            <label for="adresa_izmena" class="text-dark">Adresa: </label>
+                            <input type="text" class="form-control" placeholder="" id="adresa_izmena">
+                        </div>
+                        <div class="form-group">
+                            <label for="email_izmena" class="text-dark">Email: </label>
+                            <input type="email" class="form-control" id="email_izmena">
+                        </div>
+                        <div class="form-group">
+                            <label for="razredni_izmena" class="text-dark">Razredni: </label>
+                            <select id="razredni_izmena" class="form-control">
+                                <?php
+                                $query = "select id, r_ime, r_prezime from razredni";
+                                $baza->ExecuteQuery($query);
+                                while ($razredni_red = $baza->getResult()->fetch_object()) :
+                                ?>
+                                    <option value="<?php echo $razredni_red->id; ?>"><?php echo $razredni_red->r_ime . " " . $razredni_red->r_prezime; ?></option>
+                                <?php endwhile; ?>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" id="btnIzmeni">Sačuvaj izmene</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Izađi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="javascript.js"></script>

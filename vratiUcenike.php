@@ -35,7 +35,7 @@ $baza = new Baza();
                 <td><?php echo $ucenik->r_ime . " " . $ucenik->r_prezime;  ?></td>
                 <td><?php echo $ucenik->naziv;  ?></td>
                 <td>
-                    <button class="btn btn-primary" id="dugmeIzmeni">Izmeni</button>
+                    <button class="btn btn-primary" id="dugmeIzmeni" value="<?php echo $ucenik->id; ?>">Izmeni</button>
                     <button class="btn btn-danger" id="dugmeObrisi" value="<?php echo $ucenik->id; ?>">Obriši</button>
                 </td>
             </tr>
