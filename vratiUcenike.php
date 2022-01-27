@@ -5,7 +5,7 @@ $baza = new Baza();
 
 ?>
 
-<table class="table table-hover table-bordered table-striped ">
+<table class="table table-hover table-bordered table-striped">
     <thead class="thead-dark table-info">
         <tr>
             <th>ID</th>

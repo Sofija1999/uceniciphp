@@ -16,7 +16,16 @@
     $baza = new Baza('skolaucenici');
     ?>
 
+    <div>
+        <nav class="navbar navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a href="sortiranje.php" class="navbar-brand" style="margin-left: 900px; font-size: 25px;">Sortiranje</a>
+            </div>
+    </div>
+
+
     <div class="container">
+
         <div class="row">
             <div class="col">
                 <div class="card-title mt-5 text-center">

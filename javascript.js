@@ -4,6 +4,7 @@ $(document).ready(function () {
     obrisiUcenika();
     prikaziUcenika();
     izmeniUcenika();
+    $('#tbl-srt').DataTable();
 });
 
 function vratiSveUcenike() {
